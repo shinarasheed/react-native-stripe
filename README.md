@@ -1,2 +1,2 @@
-# Expo-Stripe
+# React-Native-Stripe
 
