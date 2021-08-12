@@ -11,15 +11,18 @@ export default function CheckoutScreen() {
   //     ? "http://10.0.2.2:3000"
   //     : "http://127.0.0.1:3000";
 
-  const API_URL = "https://desolate-brook-73071.herokuapp.com/";
+  const API_URL = "https://desolate-brook-73071.herokuapp.com";
 
   const fetchPaymentSheetParams = async () => {
     const response = await fetch(`${API_URL}/payment-sheet`, {
       method: "POST",
       headers: {
+        'Accept': 'application/json',
         "Content-Type": "application/json",
       },
-    });
+    }).catch((error=>{
+      console.log(error)
+    }));
     const { paymentIntent, ephemeralKey, customer } = await response.json();
     setClientSecret(paymentIntent);
 
